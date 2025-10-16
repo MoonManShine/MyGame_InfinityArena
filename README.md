@@ -24,3 +24,4 @@ I am responsible for character mechanics, UI/UX design, and environment setup.
 
 ## Credits
 - Sword model used: "Fantasy Gradient Sword" by Mikołaj Michalak (Nillusion), Sketchfab, CC-BY 4.0
+- Goblin model used: "Goblin Ghoul" by Rodrigo Bento, Sketchfab, CC-BY 4.0

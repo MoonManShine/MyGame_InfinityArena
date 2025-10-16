@@ -4,6 +4,7 @@ public class PlayerController : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
+    [SerializeField] private int health = 100;
     [SerializeField] private float speed = 5f;
     [SerializeField] private float jumpForce = 2f;
     [SerializeField] private float yVelocity = 0f;
@@ -45,12 +46,23 @@ public class PlayerController : MonoBehaviour
 
         _controller.Move(move * speed * Time.deltaTime);
     }
-    
-    void PlayerAttack ()
+
+    void PlayerAttack()
     {
         if (Input.GetMouseButtonDown(0))
         {
             attackAnimator.SetTrigger("Attack1");
+        }
+    }
+    
+    public void TakeDamage(int damage)
+    {
+        health -= damage;
+        Debug.Log("HP: " + health);
+
+        if (health <= 0)
+        {
+            Debug.Log("Player dead");
         }
     }
 }

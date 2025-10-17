@@ -1,4 +1,6 @@
 using UnityEngine;
+using UnityEngine.AI;
+using UnityEngine.InputSystem;
 
 public class EnemySpawner : MonoBehaviour
 {
@@ -16,5 +18,15 @@ public class EnemySpawner : MonoBehaviour
     void SpawnGoblin()
     {
         Vector3 randomPos = player.position + Random.insideUnitSphere * spawnRadius;
+        randomPos.y = player.position.y + 5f;
+
+        if (NavMesh.SamplePosition(randomPos, out NavMeshHit hit, 10f, NavMesh.AllAreas))
+        {
+            Instantiate(goblinPrefab, hit.position, Quaternion.identity);
+        }
+        else
+        {
+            Debug.LogWarning("Couldnt find a spot");
+        }
     }
 }

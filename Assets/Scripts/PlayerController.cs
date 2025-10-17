@@ -3,6 +3,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
+    public static PlayerController Instance { get; private set; }
 
     [SerializeField] private int health = 100;
     [SerializeField] private float speed = 5f;
@@ -14,6 +15,19 @@ public class PlayerController : MonoBehaviour
 
     private CharacterController _controller;
 
+    void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject); //dont destroy player object
+        }
+        else
+        {
+            Destroy(gameObject); //destroy clone
+        }
+    }
+    
     void Start()
     {
         _controller = GetComponent<CharacterController>();

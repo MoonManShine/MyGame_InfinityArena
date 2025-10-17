@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8852624890254339055}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -46,6 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56b0d7cd76263f1429885de1ef4b99a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: 100
   speed: 5
   jumpForce: 1
   yVelocity: 0
@@ -207,7 +208,6 @@ MonoBehaviour:
   m_ScreenCoordScaleBias: {x: 0, y: 0, z: 0, w: 0}
   m_RequiresDepthTexture: 0
   m_RequiresColorTexture: 0
-  m_Version: 2
   m_TaaSettings:
     m_Quality: 3
     m_FrameInfluence: 0.1
@@ -215,6 +215,7 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
+  m_Version: 2
 --- !u!114 &4976219028787254834
 MonoBehaviour:
   m_ObjectHideFlags: 0

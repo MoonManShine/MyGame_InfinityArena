@@ -1961,8 +1961,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4374239589558306550}
   - component: {fileID: 5931099291003581987}
-  - component: {fileID: 8710021195504594456}
-  - component: {fileID: 4545163669044528620}
+  - component: {fileID: 515467048653555311}
   m_Layer: 0
   m_Name: GOBLIN
   m_TagString: Untagged
@@ -2005,6 +2004,8 @@ SkinnedMeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -2026,6 +2027,7 @@ SkinnedMeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
@@ -2098,56 +2100,28 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.13193989, y: 0.039147377, z: 1.6284549}
     m_Extent: {x: 6.970416, y: 8.47029, z: 4.4914484}
   m_DirtyAABB: 0
---- !u!136 &8710021195504594456
-CapsuleCollider:
+--- !u!95 &515467048653555311
+Animator:
+  serializedVersion: 7
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8134572165774363036}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.09376104
-  m_Height: 0.18752217
-  m_Direction: 1
-  m_Center: {x: 0.013440978, y: 0.062317986, z: 0.010395467}
---- !u!54 &4545163669044528620
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8134572165774363036}
-  serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
+  m_Avatar: {fileID: 9000000, guid: 6fc3354689b7d3943ba5bac595347bbc, type: 3}
+  m_Controller: {fileID: 9100000, guid: e2a94f9e3b22a79428c02242ceac875a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &8158341808776020794
 GameObject:
   m_ObjectHideFlags: 0
@@ -2352,9 +2326,11 @@ GameObject:
   - component: {fileID: 8445590595796897552}
   - component: {fileID: 7833105227906134950}
   - component: {fileID: 3488032315905662630}
+  - component: {fileID: 5835789872031529070}
+  - component: {fileID: 808039416866149554}
   m_Layer: 0
   m_Name: GoblinEnemy
-  m_TagString: Untagged
+  m_TagString: Goblin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2388,8 +2364,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b97311b715af164da6ef4898b97873b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  separationRadius: 2
+  pushForce: 0.5
   damage: 10
-  player: {fileID: 5612815609714419413, guid: cdaf1d4a7f4e494408af0e3ded26bb48, type: 3}
 --- !u!195 &3488032315905662630
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -2408,10 +2385,60 @@ NavMeshAgent:
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
-  m_Height: 2
+  m_Height: 1.8
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!136 &5835789872031529070
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9115025383369659818}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 10.425477
+  m_Height: 24.757854
+  m_Direction: 1
+  m_Center: {x: -0.36836386, y: 5.4799232, z: 2.504207}
+--- !u!54 &808039416866149554
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9115025383369659818}
+  serializedVersion: 5
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &9155768997038496479
 GameObject:
   m_ObjectHideFlags: 0

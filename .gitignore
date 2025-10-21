@@ -35,3 +35,19 @@ Assets/AssetStoreTools*
 # Crash / debug files
 sysinfo.txt
 *.stackdump
+
+# Configs and secrets
+*.env
+*.json
+*.plist
+*.xml
+*.config
+*.ini
+
+.CollabIgnore
+PlasticSCM/
+
+*.dmp
+*.memsnap
+*.heap
+*.prof

@@ -9,7 +9,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float speed = 5f;
     [SerializeField] private float jumpForce = 2f;
     [SerializeField] private float yVelocity = 0f;
-    [SerializeField] private Animator attackAnimator;
 
     public float gravity = -9.81f;
 
@@ -37,7 +36,6 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         PlayerMove();
-        PlayerAttack();
     }
 
     void PlayerMove()
@@ -59,14 +57,6 @@ public class PlayerController : MonoBehaviour
         move.y = yVelocity;
 
         _controller.Move(move * speed * Time.deltaTime);
-    }
-
-    void PlayerAttack()
-    {
-        if (Input.GetMouseButtonDown(0))
-        {
-            attackAnimator.SetTrigger("IsAttack");
-        }
     }
     
     public void TakeDamage(int damage)

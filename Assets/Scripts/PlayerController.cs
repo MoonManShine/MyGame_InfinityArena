@@ -65,7 +65,7 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            attackAnimator.SetTrigger("Attack1");
+            attackAnimator.SetTrigger("IsAttack");
         }
     }
     

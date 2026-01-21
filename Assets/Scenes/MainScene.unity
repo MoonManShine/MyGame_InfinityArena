@@ -780,6 +780,20 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0, z: 0}
   m_TimeToStationary: 0.5
+--- !u!114 &403415900
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 403415894}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6832ba5940af06343add2cc751ca605a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AttackController
+  attackAnimator: {fileID: 615304949}
+  swordHitox: {fileID: 615304947}
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
@@ -1043,6 +1057,16 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 606181418}
   m_CullTransparentMesh: 1
+--- !u!1 &615304947 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2273379147973481235, guid: cdaf1d4a7f4e494408af0e3ded26bb48, type: 3}
+  m_PrefabInstance: {fileID: 8197390528157061391}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &615304949 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 3476416417948892812, guid: cdaf1d4a7f4e494408af0e3ded26bb48, type: 3}
+  m_PrefabInstance: {fileID: 8197390528157061391}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &723802298
 GameObject:
   m_ObjectHideFlags: 0
@@ -4348,6 +4372,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4037941694075391191, guid: cdaf1d4a7f4e494408af0e3ded26bb48, type: 3}
       insertIndex: -1
       addedObject: {fileID: 403415897}
+    - targetCorrespondingSourceObject: {fileID: 4037941694075391191, guid: cdaf1d4a7f4e494408af0e3ded26bb48, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 403415900}
   m_SourcePrefab: {fileID: 100100000, guid: cdaf1d4a7f4e494408af0e3ded26bb48, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

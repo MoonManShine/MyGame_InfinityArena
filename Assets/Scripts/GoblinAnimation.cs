@@ -8,7 +8,7 @@ public class GoblinAnimation : MonoBehaviour
 
     void Start()
     {
-        _anim = GetComponent<Animator>();
+        _anim = GetComponentInChildren<Animator>();
         _agent = GetComponent<NavMeshAgent>();   
     }
 

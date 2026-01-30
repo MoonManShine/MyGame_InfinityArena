@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private int health = 100;
     [SerializeField] private float speed = 5f;
+    [SerializeField] private float sprintSpeed = 10f;
     [SerializeField] private float jumpForce = 2f;
     [SerializeField] private float yVelocity = 0f;
 
@@ -57,6 +58,10 @@ public class PlayerController : MonoBehaviour
         move.y = yVelocity;
 
         _controller.Move(move * speed * Time.deltaTime);
+
+        //sprint, SHIFT button
+        if (Input.GetKeyDown(KeyCode.LeftShift) && _controller.isGrounded)
+            speed = sprintSpeed;
     }
     
     public void TakeDamage(int damage)
